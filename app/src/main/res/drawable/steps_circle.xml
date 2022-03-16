@@ -9,6 +9,14 @@
         </shape>
     </item>
     <item>
+        <shape
+            android:shape="ring"
+            android:thicknessRatio="120"
+            android:useLevel="false">
+            <solid android:color="#606060"/>
+        </shape>
+    </item>
+    <item>
         <rotate
             android:fromDegrees="270"
             android:toDegrees="270">

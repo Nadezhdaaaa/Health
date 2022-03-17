@@ -12,35 +12,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.bottomNavigationView.selectedItemId = R.id.homeButton
 
-        binding.homeButton.setOnClickListener{
-            supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.frameLayout,HomeFragment.newInstance())
-            .commit()
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.homeButton -> {
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.frameLayout,HomeFragment.newInstance())
+                }
+                R.id.vitaminsButton -> {
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.frameLayout,VitaminsFragment.newInstance())
+                }
+                R.id.foodButton -> {
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.frameLayout,FoodFragment.newInstance())
+                }
+                R.id.profileButton -> {
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.frameLayout,ProfileFragment.newInstance())
+                }
+            }
+            true
         }
-        binding.vitaminsButton.setOnClickListener{
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.frameLayout,VitaminsFragment.newInstance())
-                .commit()
-        }
-        binding.foodButton.setOnClickListener{
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.frameLayout,FoodFragment.newInstance())
-                .commit()
-        }
-        binding.profileButton.setOnClickListener{
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.frameLayout,ProfileFragment.newInstance())
-                .commit()
-        }
-
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.frameLayout,HomeFragment.newInstance())
-            .commit()
     }
 }

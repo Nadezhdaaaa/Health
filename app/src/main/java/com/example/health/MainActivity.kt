@@ -2,6 +2,7 @@ package com.example.health
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import com.example.health.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -13,31 +14,31 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.bottomNavigationView.selectedItemId = R.id.homeButton
+        showNewFragment(HomeFragment.newInstance())
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.homeButton -> {
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.frameLayout,HomeFragment.newInstance())
+                    showNewFragment(HomeFragment.newInstance())
                 }
                 R.id.vitaminsButton -> {
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.frameLayout,VitaminsFragment.newInstance())
+                    showNewFragment(VitaminsFragment.newInstance())
                 }
                 R.id.foodButton -> {
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.frameLayout,FoodFragment.newInstance())
+                    showNewFragment(FoodFragment.newInstance())
                 }
                 R.id.profileButton -> {
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.frameLayout,ProfileFragment.newInstance())
+                    showNewFragment(ProfileFragment.newInstance())
                 }
             }
             true
         }
+    }
+    fun showNewFragment(fragment: Fragment)
+    {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.frameLayout,fragment)
+            .commit()
     }
 }

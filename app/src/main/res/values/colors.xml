@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#FF9800</color>
     <color name="orange_2">#6A3F00</color>
-    <color name="sex_female">#BB00FF</color>
-    <color name="sex_male">#008EFF</color>
+    <color name="female_pink_500">#BB00FF</color>
+    <color name="female_pink_200">#D04EFF</color>
+    <color name="male_blue">#008EFF</color>
 </resources>

@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.bottomNavigationView.selectedItemId = R.id.homeButton
         showNewFragment(HomeFragment.newInstance())
-
+        //переключение между фрагментами в меню
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.homeButton -> {

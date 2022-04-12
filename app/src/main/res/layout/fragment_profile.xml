@@ -15,7 +15,7 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.33"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.1" />
@@ -24,14 +24,13 @@
         android:id="@+id/weight_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:ems="3"
         android:hint="kg"
         android:inputType="number"
         android:textColorHint="#78909C"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/weight_textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toEndOf="@+id/weight_textView"
         app:layout_constraintTop_toTopOf="@+id/weight_textView" />
 
@@ -91,16 +90,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:checked="true"
-        android:text="Sex"
-        android:textOff="M"
-        android:textOn="F"
         android:scaleX="2"
         android:scaleY="2"
+        android:textOff="M"
+        android:textOn="F"
         android:textSize="14sp"
         android:theme="@style/SwitchSex"
         app:layout_constraintEnd_toEndOf="@+id/age_editText"
         app:layout_constraintStart_toStartOf="@+id/age_editText"
         app:layout_constraintTop_toBottomOf="@+id/age_editText"
         app:showText="true" />
+
+    <TextView
+        android:id="@+id/sex_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sex"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/sex_switch"
+        app:layout_constraintEnd_toEndOf="@+id/age_textView"
+        app:layout_constraintStart_toStartOf="@+id/age_textView"
+        app:layout_constraintTop_toTopOf="@+id/sex_switch" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

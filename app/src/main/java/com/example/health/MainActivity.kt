@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.frameLayout,fragment)
             .commit()
     }
-    private fun prefSaveDataString(key: String, data: String)
+    private fun prefSaveDataString(key: String, data: String?)
     {
         val editor = pref?.edit()
         editor?.putString(key,data)

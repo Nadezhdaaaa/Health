@@ -3,6 +3,7 @@ package com.example.health
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.example.health.databinding.ActivityMainBinding
@@ -39,11 +40,28 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        dataModel.weight.value = pref?.getString(PreferencesConstants.WEIGHT,null)
         //сохранение данных
         pref = getSharedPreferences("TABLE", MODE_PRIVATE)
+        //
+        dataModel.weight.value = pref?.getString(PreferencesConstants.WEIGHT,null)
+        dataModel.height.value = pref?.getString(PreferencesConstants.HEIGHT,null)
+        dataModel.age.value = pref?.getString(PreferencesConstants.AGE,null)
+        Log.d("mainLog","log: ${dataModel.sex.value}")
+        dataModel.sex.value = pref?.getBoolean(PreferencesConstants.SEX,false)
+
         dataModel.weight.observe(this) {
             prefSaveDataString(PreferencesConstants.WEIGHT,it)
+        }
+        dataModel.height.observe(this){
+            prefSaveDataString(PreferencesConstants.HEIGHT,it)
+        }
+        dataModel.age.observe(this)
+        {
+            prefSaveDataString(PreferencesConstants.AGE,it)
+        }
+        dataModel.sex.observe(this)
+        {
+            prefSaveDataBoolean(PreferencesConstants.SEX,it)
         }
     }
     private fun showNewFragment(fragment: Fragment)
@@ -57,6 +75,12 @@ class MainActivity : AppCompatActivity() {
     {
         val editor = pref?.edit()
         editor?.putString(key,data)
+        editor?.apply()
+    }
+    private fun prefSaveDataBoolean(key: String, data: Boolean)
+    {
+        val editor = pref?.edit()
+        editor?.putBoolean(key,data)
         editor?.apply()
     }
 }

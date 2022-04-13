@@ -32,6 +32,9 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.weightEditText.setText(dataModel.weight.value)
+        binding.heightEditText.setText(dataModel.height.value)
+        binding.ageEditText.setText(dataModel.age.value)
+        binding.sexSwitch.isChecked = dataModel.sex.value!!
         //сохранение данных профиля
         binding.saveButton.setOnClickListener {
             if(binding.weightEditText.text != null && binding.heightEditText.text != null && binding.ageEditText.text != null)
@@ -42,11 +45,14 @@ class ProfileFragment : Fragment() {
                 sex = binding.sexSwitch.isChecked
                 //сохранение в память
                 dataModel.weight.value = weight
+                dataModel.height.value = height
+                dataModel.age.value = age
+                dataModel.sex.value = sex
             }
             else{
                 Toast.makeText(context, "Заполните все поля", Toast.LENGTH_SHORT).show()
             }
-            Toast.makeText(context, "$weight | $height | $age | $age", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "$weight | $height | $age | $sex", Toast.LENGTH_SHORT).show()
         }
 
     }

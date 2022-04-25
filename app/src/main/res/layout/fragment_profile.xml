@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    tools:context=".screens.ProfileFragment">
 
     <TextView
         android:id="@+id/weight_textView"
@@ -14,25 +14,25 @@
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.33"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.1"
+        android:layout_marginEnd="8dp"/>
 
     <EditText
         android:id="@+id/weight_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:ems="3"
         android:hint="@string/kg"
         android:inputType="number"
         android:textColorHint="#78909C"
         android:textSize="20sp"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/weight_textView"
-        app:layout_constraintStart_toEndOf="@+id/weight_textView"
-        app:layout_constraintTop_toTopOf="@+id/weight_textView" />
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/weight_textView"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/height_textView"
@@ -41,9 +41,10 @@
         android:text="@string/height"
         android:textColor="@color/black"
         android:textSize="24sp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/height_editText"
-        app:layout_constraintEnd_toEndOf="@+id/weight_textView"
-        app:layout_constraintStart_toStartOf="@+id/weight_textView"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/height_editText" />
 
     <EditText
@@ -56,8 +57,10 @@
         android:inputType="number"
         android:textColorHint="#78909C"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/weight_editText"
-        app:layout_constraintTop_toBottomOf="@+id/weight_editText" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/weight_editText"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/age_textView"
@@ -66,9 +69,9 @@
         android:text="@string/age"
         android:textColor="@color/black"
         android:textSize="24sp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/age_editText"
-        app:layout_constraintEnd_toEndOf="@+id/weight_textView"
-        app:layout_constraintStart_toStartOf="@+id/weight_textView"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/age_editText" />
 
     <EditText
@@ -81,8 +84,10 @@
         android:inputType="number"
         android:textColorHint="#78909C"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/height_editText"
-        app:layout_constraintTop_toBottomOf="@+id/height_editText" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/height_editText"
+        android:autofillHints="" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/sex_switch"
@@ -95,8 +100,8 @@
         android:textOn="@string/f"
         android:textSize="14sp"
         android:theme="@style/SwitchSex"
-        app:layout_constraintEnd_toEndOf="@+id/age_editText"
-        app:layout_constraintStart_toStartOf="@+id/age_editText"
+        android:layout_marginStart="24dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/age_editText"
         app:showText="true" />
 
@@ -107,9 +112,9 @@
         android:text="@string/sex"
         android:textColor="@color/black"
         android:textSize="24sp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/sex_switch"
-        app:layout_constraintEnd_toEndOf="@+id/age_textView"
-        app:layout_constraintStart_toStartOf="@+id/age_textView"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/sex_switch" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -124,6 +129,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sex_switch"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.2"
+        android:focusable="true" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/homeButton"
+        android:id="@+id/homeFragment"
         android:title="@string/title_home"
         android:orderInCategory="1"
         android:icon="@drawable/ic_home"/>
     <item
-        android:id="@+id/vitaminsButton"
+        android:id="@+id/vitaminsFragment"
         android:title="@string/title_vitamins"
         android:orderInCategory="2"
         android:icon="@drawable/ic_vitamins"/>
     <item
-        android:id="@+id/foodButton"
+        android:id="@+id/foodFragment"
         android:title="@string/title_food"
         android:orderInCategory="3"
         android:icon="@drawable/ic_food"/>
     <item
-        android:id="@+id/profileButton"
+        android:id="@+id/profileFragment"
         android:title="@string/title_profile"
         android:orderInCategory="4"
         android:icon="@drawable/ic_profile"/>

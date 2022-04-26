@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private var _binding: ActivityMainBinding? = null
     private val mBinding get() = _binding!!
-    //lateinit var navController: NavController
+    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,19 +29,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
         APP_ACTIVITY = this
 
-        val host: NavHostFragment = supportFragmentManager
+        /*val host: NavHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment? ?: return
         val navController = host.navController
-        setUpBottomNav(navController)
-        //navController = findNavController(R.id.nav_host_fragment_container)
-        //val bottomNavigationView = mBinding.bottomNavigationView
-        //bottomNavigationView.setupWithNavController(navController)
+        setUpBottomNav(navController)*/
+        navController = findNavController(R.id.nav_host_fragment_container)
+        val bottomNavigationView = mBinding.bottomNavigationView
+        bottomNavigationView.setupWithNavController(navController)
     }
 
-    private fun setUpBottomNav(navController: NavController) {
+    /*private fun setUpBottomNav(navController: NavController) {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNav?.setupWithNavController(navController)
-    }
+    }*/
 
     override fun onDestroy() {
         super.onDestroy()

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.health.R
 import com.example.health.databinding.FragmentFoodBinding
 import com.example.health.utilits.APP_ACTIVITY
@@ -30,7 +31,7 @@ class FoodFragment : Fragment() {
 
     private fun initialization() {
         mBinding.btnAddNewFood.setOnClickListener{
-            Navigation.createNavigateOnClickListener(R.id.action_foodFragment_to_addNewFoodFragment)
+            findNavController().navigate(R.id.action_foodFragment_to_addNewFoodFragment)
             //APP_ACTIVITY.navController.navigate(R.id.action_foodFragment_to_addNewFoodFragment)
         }
     }

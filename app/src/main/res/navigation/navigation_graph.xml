@@ -41,7 +41,7 @@
         <action
             android:id="@+id/action_addNewFoodFragment_to_foodFragment"
             app:destination="@id/foodFragment"
-            app:launchSingleTop="true"
+            app:popUpToInclusive="true"
             app:popUpTo="@id/navigation_graph" />
     </fragment>
 </navigation>

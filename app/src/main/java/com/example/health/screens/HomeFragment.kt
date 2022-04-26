@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.health.R
 import com.example.health.databinding.FragmentHomeBinding
 import com.example.health.utilits.APP_ACTIVITY
@@ -29,7 +30,8 @@ class HomeFragment : Fragment() {
 
     private fun initialization() {
         mBinding.btnAddFood.setOnClickListener {
-            APP_ACTIVITY.navController.navigate(R.id.action_homeFragment_to_addNewFoodFragment)
+                Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_foodFragment)
+            //APP_ACTIVITY.navController.navigate(R.id.action_homeFragment_to_foodFragment)
         }
     }
 

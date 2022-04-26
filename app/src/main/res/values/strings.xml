@@ -19,4 +19,6 @@
     <string name="sex">Пол</string>
     <string name="save">save</string>
     <string name="add_food">Добавить еду</string>
+    <string name="add_new_food">Добавить новый рецепт</string>
+    <string name="add">Добавить</string>
 </resources>

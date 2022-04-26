@@ -6,22 +6,13 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/foodFragment"
-        android:name="com.example.health.screens.FoodFragment"
-        android:label="fragment_food"
-        tools:layout="@layout/fragment_food" >
-        <action
-            android:id="@+id/action_foodFragment_to_addNewFoodFragment"
-            app:destination="@id/addNewFoodFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.health.screens.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_foodFragment"
-            app:destination="@id/foodFragment" />
+            app:destination="@id/FoodNavigation" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -33,15 +24,27 @@
         android:name="com.example.health.screens.VitaminsFragment"
         android:label="fragment_vitamins"
         tools:layout="@layout/fragment_vitamins" />
-    <fragment
-        android:id="@+id/addNewFoodFragment"
-        android:name="com.example.health.screens.AddNewFoodFragment"
-        android:label="fragment_add_new_food"
-        tools:layout="@layout/fragment_add_new_food" >
-        <action
-            android:id="@+id/action_addNewFoodFragment_to_foodFragment"
-            app:destination="@id/foodFragment"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/navigation_graph" />
-    </fragment>
+    <navigation android:id="@+id/FoodNavigation"
+        app:startDestination="@id/foodFragment">
+        <fragment
+            android:id="@+id/addNewFoodFragment"
+            android:name="com.example.health.screens.AddNewFoodFragment"
+            android:label="fragment_add_new_food"
+            tools:layout="@layout/fragment_add_new_food">
+            <action
+                android:id="@+id/action_addNewFoodFragment_to_foodFragment"
+                app:destination="@id/foodFragment"
+                app:popUpTo="@id/navigation_graph"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/foodFragment"
+            android:name="com.example.health.screens.FoodFragment"
+            android:label="fragment_food"
+            tools:layout="@layout/fragment_food">
+            <action
+                android:id="@+id/action_foodFragment_to_addNewFoodFragment"
+                app:destination="@id/addNewFoodFragment" />
+        </fragment>
+    </navigation>
 </navigation>

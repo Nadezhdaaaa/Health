@@ -32,7 +32,6 @@ class HomeFragment : Fragment() {
     private fun initialization() {
         mBinding.btnAddFood.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_foodFragment)
-            //APP_ACTIVITY.navController.navigate(R.id.action_homeFragment_to_foodFragment)
         }
     }
 

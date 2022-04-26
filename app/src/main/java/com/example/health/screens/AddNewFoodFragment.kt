@@ -32,7 +32,6 @@ class AddNewFoodFragment : Fragment() {
     private fun initialization() {
         mBinding.btnAddNewFood.setOnClickListener {
             findNavController().navigate(R.id.action_addNewFoodFragment_to_foodFragment)
-            //APP_ACTIVITY.navController.navigate(R.id.action_addNewFoodFragment_to_foodFragment)
         }
     }
 

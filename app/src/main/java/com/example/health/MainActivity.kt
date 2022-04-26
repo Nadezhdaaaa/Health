@@ -10,12 +10,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.health.databinding.ActivityMainBinding
-import com.example.health.screens.FoodFragment
-import com.example.health.screens.HomeFragment
-import com.example.health.screens.ProfileFragment
-import com.example.health.screens.VitaminsFragment
 import com.example.health.utilits.APP_ACTIVITY
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,19 +24,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
         APP_ACTIVITY = this
 
-        /*val host: NavHostFragment = supportFragmentManager
-            .findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment? ?: return
-        val navController = host.navController
-        setUpBottomNav(navController)*/
         navController = findNavController(R.id.nav_host_fragment_container)
         val bottomNavigationView = mBinding.bottomNavigationView
         bottomNavigationView.setupWithNavController(navController)
     }
-
-    /*private fun setUpBottomNav(navController: NavController) {
-        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        bottomNav?.setupWithNavController(navController)
-    }*/
 
     override fun onDestroy() {
         super.onDestroy()

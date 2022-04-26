@@ -11,7 +11,7 @@
         android:orderInCategory="2"
         android:icon="@drawable/ic_vitamins"/>
     <item
-        android:id="@+id/foodFragment"
+        android:id="@+id/FoodNavigation"
         android:title="@string/title_food"
         android:orderInCategory="3"
         android:icon="@drawable/ic_food"/>

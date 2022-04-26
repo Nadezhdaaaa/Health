@@ -14,7 +14,7 @@ import com.example.health.utilits.APP_ACTIVITY
 class FoodFragment : Fragment() {
 
     private var _binding : FragmentFoodBinding? = null
-    val mBinding get() = _binding!!
+    private val mBinding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +32,6 @@ class FoodFragment : Fragment() {
     private fun initialization() {
         mBinding.btnAddNewFood.setOnClickListener{
             findNavController().navigate(R.id.action_foodFragment_to_addNewFoodFragment)
-            //APP_ACTIVITY.navController.navigate(R.id.action_foodFragment_to_addNewFoodFragment)
         }
     }
 

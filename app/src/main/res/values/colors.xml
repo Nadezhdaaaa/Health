@@ -14,4 +14,5 @@
     <color name="male_blue">#008EFF</color>
     <color name="text_hint">#78909C</color>
     <color name="add_food_color">#FF8076</color>
+    <color name="margin_color">#CFCFCF</color>
 </resources>

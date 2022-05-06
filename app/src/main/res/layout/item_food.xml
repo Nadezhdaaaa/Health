@@ -8,7 +8,7 @@
     android:background="?android:selectableItemBackground">
 
     <TextView
-        android:id="@+id/food_item_textView"
+        android:id="@+id/food_item_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="4dp"
@@ -29,6 +29,6 @@
         android:background="@color/margin_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/food_item_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/food_item_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

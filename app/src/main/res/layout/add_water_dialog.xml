@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textfield.TextInputLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="22dp"
+    android:paddingHorizontal="12dp">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/water_value_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:text="@string/_200"
+        android:hint="@string/enter_value_milliliter"
+        android:inputType="number"
+        android:textSize="20sp"
+        android:imeOptions="actionDone"
+        android:selectAllOnFocus="true"/>
+
+    <SeekBar
+        android:id="@+id/water_value_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:progress="200"
+        android:max="1000"
+        android:layout_marginTop="10dp"
+        android:progressTint="@color/water"
+        android:thumbTint="@color/water"/>
+
+</com.google.android.material.textfield.TextInputLayout>

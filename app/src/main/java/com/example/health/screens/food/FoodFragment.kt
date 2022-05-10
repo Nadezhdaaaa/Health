@@ -80,7 +80,6 @@ class FoodFragment : Fragment() {
                 .setPositiveButton(mContext.getString(R.string.confirm),null)
                 .create()
             dialog.setOnShowListener {
-                dialogBinding.foodValueEditText.requestFocus()
                 dialogBinding.foodValueSeekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                     override fun onProgressChanged(p0: SeekBar?, progress: Int, fromUser: Boolean) {
                         if (fromUser) {

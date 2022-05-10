@@ -1,4 +1,4 @@
-package com.example.health.screens
+package com.example.health.screens.food
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -31,7 +31,7 @@ class AddNewFoodFragment : Fragment() {
 
     private fun initialization() {
         mBinding.btnAddNewFood.setOnClickListener {
-            findNavController().navigate(R.id.action_addNewFoodFragment_to_foodFragment)
+            findNavController().popBackStack()
         }
     }
 

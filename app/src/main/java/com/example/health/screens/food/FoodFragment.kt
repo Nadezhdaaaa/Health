@@ -1,5 +1,6 @@
 package com.example.health.screens.food
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.health.R
+import com.example.health.databinding.AddFoodDialogBinding
 import com.example.health.databinding.FragmentFoodBinding
 import com.example.health.models.Dish
 import com.example.health.utilits.APP_ACTIVITY
@@ -59,5 +61,18 @@ class FoodFragment : Fragment() {
         mRecyclerView.adapter = null
     }
 
+    companion object{
+        fun click(foodItem: Dish){
+            showAddFoodAlertDialog(foodItem)
+        }
+
+        private fun showAddFoodAlertDialog(foodItem: Dish) {
+            val layoutInflater = LayoutInflater.from(APP_ACTIVITY)
+            val dialogBinding = AddFoodDialogBinding.inflate(layoutInflater)
+
+            val dialog = AlertDialog.Builder(APP_ACTIVITY)
+                .setTitle(foodItem.name)
+        }
+    }
 
 }

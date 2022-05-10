@@ -1,6 +1,7 @@
 package com.example.health.screens.food
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.health.databinding.ItemFoodBinding
@@ -11,6 +12,17 @@ class FoodAdapter : RecyclerView.Adapter<FoodAdapter.FoodHolder>() {
     class FoodHolder(val binding: ItemFoodBinding) : RecyclerView.ViewHolder(binding.root)
 
     private var mListFood = emptyList<Dish>()
+
+    override fun onViewAttachedToWindow(holder: FoodHolder) {
+        holder.itemView.setOnClickListener{
+            FoodFragment.click(mListFood[holder.adapterPosition])
+        }
+    }
+
+    override fun onViewDetachedFromWindow(holder: FoodHolder) {
+        holder.itemView.setOnClickListener(null)
+        super.onViewDetachedFromWindow(holder)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodHolder {
         val inflater = LayoutInflater.from(parent.context)

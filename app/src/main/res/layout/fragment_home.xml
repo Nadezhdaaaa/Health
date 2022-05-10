@@ -77,12 +77,12 @@
         app:layout_constraintTop_toBottomOf="@+id/kkal_progressBar" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_add_food"
+        android:id="@+id/btn_add_water"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:src="@drawable/ic_add"
-        android:backgroundTint="@color/add_food_color"
+        android:backgroundTint="@color/water"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,10 +95,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/add_food"
+        android:text="@string/water"
         android:textSize="20sp"
         android:textColor="@color/text_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_add_food" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_add_water" />
 </androidx.constraintlayout.widget.ConstraintLayout>

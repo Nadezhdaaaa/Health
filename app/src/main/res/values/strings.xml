@@ -18,7 +18,10 @@
     <string name="f">Ж</string>
     <string name="sex">Пол</string>
     <string name="save">save</string>
-    <string name="add_food">Добавить еду</string>
+    <string name="water">Вода</string>
     <string name="add_new_food">Добавить новый рецепт</string>
     <string name="add">Добавить</string>
+    <string name="enter_value_gram">Введите количество (г)</string>
+    <string name="enter_value_milliliter">Укажите объем (мл)</string>
+    <string name="_300">300</string>
 </resources>

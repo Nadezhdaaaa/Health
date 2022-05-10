@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.example.health.R
 import com.example.health.databinding.FragmentHomeBinding
 import com.example.health.utilits.APP_ACTIVITY
@@ -34,8 +35,8 @@ class HomeFragment : Fragment() {
     private fun initialization() {
         mViewModel = ViewModelProvider(this).get(HomeFragmentViewModel::class.java)
         mViewModel.initDatabase {  }
-        mBinding.btnAddFood.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_foodFragment)
+        mBinding.btnAddWater.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_waterFragment)
         }
     }
 

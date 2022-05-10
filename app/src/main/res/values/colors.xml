@@ -15,4 +15,5 @@
     <color name="text_hint">#78909C</color>
     <color name="add_food_color">#FF8076</color>
     <color name="margin_color">#CFCFCF</color>
+    <color name="water">#00BCD4</color>
 </resources>

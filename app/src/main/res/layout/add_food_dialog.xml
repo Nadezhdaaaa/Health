@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textfield.TextInputLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="22dp"
+    android:paddingHorizontal="12dp">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/food_value_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:text="@string/_300"
+        android:hint="@string/enter_value_gram"
+        android:inputType="number"
+        android:textSize="20sp"
+        android:imeOptions="actionDone"
+        android:selectAllOnFocus="true"/>
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:progress="300"
+        android:max="1000"
+        android:layout_marginTop="10dp"
+        android:progressTint="@color/add_food_color"
+        android:thumbTint="@color/add_food_color"/>
+
+</com.google.android.material.textfield.TextInputLayout>

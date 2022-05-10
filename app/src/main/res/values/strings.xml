@@ -24,4 +24,6 @@
     <string name="enter_value_gram">Введите количество (г)</string>
     <string name="enter_value_milliliter">Укажите объем (мл)</string>
     <string name="_300">300</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="enter_value">Введите значение</string>
 </resources>

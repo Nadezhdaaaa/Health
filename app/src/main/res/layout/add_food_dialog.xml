@@ -19,6 +19,7 @@
         android:selectAllOnFocus="true"/>
 
     <SeekBar
+        android:id="@+id/food_value_seekbar"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:progress="300"

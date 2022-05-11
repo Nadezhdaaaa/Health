@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="12dp"
         android:paddingVertical="16dp">
-
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/food_name_edit_text"
         android:layout_width="match_parent"
@@ -21,39 +20,85 @@
         android:inputType="text"
         android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="12dp"
         android:paddingBottom="16dp">
-
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/food_kcal_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:hint="калорийность(ккал) (обязательное поле)"
+        android:hint="Калорийность(ккал) (обязательное поле)"
         android:imeOptions="actionDone"
-        android:inputType="text"
+        android:inputType="number"
         android:textSize="20sp" />
-
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="12dp"
         android:paddingBottom="16dp">
-
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/food__edit_text"
+            android:id="@+id/food_fe_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:hint="содержание железа(мг)"
+            android:hint="Железо(мг) в 100 граммах"
             android:imeOptions="actionDone"
-            android:inputType="text"
+            android:inputType="number"
             android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="12dp"
+        android:paddingBottom="16dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/food_v_D_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="Витамин D(мкг) в 100 граммах"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="12dp"
+        android:paddingBottom="16dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/food_v_B12_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="Витамин B12(мкг) в 100 граммах"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="12dp"
+        android:paddingBottom="16dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/food_omega3_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="Омега-3(г) в 100 граммах"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

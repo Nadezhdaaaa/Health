@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.health.R
 import com.example.health.databinding.AddFoodDialogBinding
+import com.example.health.databinding.AddNewFoodDialogBinding
 import com.example.health.databinding.FragmentFoodBinding
 import com.example.health.models.Dish
 import com.example.health.utilits.APP_ACTIVITY
@@ -53,7 +54,43 @@ class FoodFragment : Fragment() {
         mViewModel = ViewModelProvider(this).get(FoodFragmentViewModel::class.java)
         mViewModel.allDishes.observe(this,mObserverList)
         mBinding.btnAddNewFood.setOnClickListener {
-            findNavController().navigate(R.id.action_foodFragment_to_addNewFoodFragment)
+            showAddNewFoodAlertDialog()
+        }
+    }
+
+    private fun showAddNewFoodAlertDialog() {
+        val dialogBinding = AddNewFoodDialogBinding.inflate(layoutInflater)
+        val dialog = AlertDialog.Builder(context)
+            .setTitle(R.string.add_new_food)
+            .setView(dialogBinding.root)
+            .setPositiveButton(R.string.confirm,null)
+            .create()
+        dialog.setOnShowListener{
+            dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener{
+                val name = dialogBinding.foodNameEditText.text.toString()
+                val kcal = dialogBinding.foodKcalEditText.text.toString()
+                val fe = dialogBinding.foodFeEditText.text.toString()
+                val vitaminD = dialogBinding.foodVDEditText.text.toString()
+                val vitaminB12 = dialogBinding.foodVB12EditText.text.toString()
+                val omega3 = dialogBinding.foodOmega3EditText.text.toString()
+                if(name.isBlank()) {
+                    dialogBinding.foodNameEditText.error = (R.string.enter_value).toString()
+                    return@setOnClickListener
+                }
+                if(kcal.isBlank()) {
+                    dialogBinding.foodKcalEditText.error = (R.string.enter_value).toString()
+                    return@setOnClickListener
+                }
+                mViewModel.insert(Dish(id = 0,
+                    name = name,
+                    kcal = kcal.toInt(),
+                    fe = fe.toIntOrNull(),
+                    vitaminD = vitaminD.toIntOrNull(),
+                    vitaminB12 = vitaminB12.toIntOrNull(),
+                    omega3 = omega3.toIntOrNull())){
+                    dialog.dismiss()
+                }
+            }
         }
     }
 

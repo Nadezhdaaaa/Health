@@ -15,5 +15,9 @@ import androidx.room.PrimaryKey
 data class Dish(
     @PrimaryKey(autoGenerate = true) val id: Long,
     val name: String,
-    val kcal: Int
+    val kcal: Int,
+    val fe: Int?,
+    @ColumnInfo(name = "vitamin_d") val vitaminD: Int?,
+    @ColumnInfo(name = "vitamin_b_12") val vitaminB12: Int?,
+    @ColumnInfo(name = "omega_3") val omega3: Int?
 )

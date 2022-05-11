@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
     private fun initialization() {
         mViewModel = ViewModelProvider(this).get(HomeFragmentViewModel::class.java)
         mViewModel.initDatabase { }
-        mBinding.btnAddWater.setOnClickListener {
+        mBinding.btnAddWater.setOnClickListener{
             addWaterClick()
         }
     }
@@ -85,6 +85,7 @@ class HomeFragment : Fragment() {
                 dialog.dismiss()
             }
         }
+        dialog.show()
     }
 
     override fun onDestroyView() {

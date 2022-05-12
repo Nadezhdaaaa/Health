@@ -18,4 +18,12 @@ class FoodFragmentViewModel(application: Application) : AndroidViewModel(applica
             }
         }
     }
+
+    fun delete(dish: Dish,onSuccess: () -> Unit){
+        viewModelScope.launch(Dispatchers.IO){
+            REPOSITORY.delete(dish){
+                onSuccess()
+            }
+        }
+    }
 }

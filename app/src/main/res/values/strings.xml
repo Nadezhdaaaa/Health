@@ -27,4 +27,7 @@
     <string name="confirm">Подтвердить</string>
     <string name="enter_value">Введите значение</string>
     <string name="_200">200</string>
+    <string name="Ok">Ок</string>
+    <string name="Delete">Удалить</string>
+    <string name="null_data">Нет данных</string>
 </resources>

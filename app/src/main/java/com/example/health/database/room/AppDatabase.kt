@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.health.models.Dish
 
 @Database(
-    version = 1,
+    version = 2,
     entities = [
         Dish::class
     ]

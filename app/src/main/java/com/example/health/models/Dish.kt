@@ -16,8 +16,8 @@ data class Dish(
     @PrimaryKey(autoGenerate = true) val id: Long,
     val name: String,
     val kcal: Int,
-    val fe: Int?,
-    @ColumnInfo(name = "vitamin_d") val vitaminD: Int?,
-    @ColumnInfo(name = "vitamin_b_12") val vitaminB12: Int?,
-    @ColumnInfo(name = "omega_3") val omega3: Int?
+    val fe: Double?,
+    @ColumnInfo(name = "vitamin_d") val vitaminD: Double?,
+    @ColumnInfo(name = "vitamin_b_12") val vitaminB12: Double?,
+    @ColumnInfo(name = "omega_3") val omega3: Double?
 )

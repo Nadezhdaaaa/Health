@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dp">
+<androidx.appcompat.widget.LinearLayoutCompat
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -16,7 +19,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:hint="Введите название (обязательное поле)"
-        android:imeOptions="actionDone"
+        android:imeOptions="actionNext"
         android:inputType="text"
         android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -32,7 +35,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:hint="Калорийность(ккал) (обязательное поле)"
-        android:imeOptions="actionDone"
+        android:imeOptions="actionNext"
         android:inputType="number"
         android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -48,8 +51,8 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:hint="Железо(мг) в 100 граммах"
-            android:imeOptions="actionDone"
-            android:inputType="number"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,8 +67,8 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:hint="Витамин D(мкг) в 100 граммах"
-            android:imeOptions="actionDone"
-            android:inputType="number"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,8 +83,8 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:hint="Витамин B12(мкг) в 100 граммах"
-            android:imeOptions="actionDone"
-            android:inputType="number"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,8 +100,9 @@
             android:background="@color/white"
             android:hint="Омега-3(г) в 100 граммах"
             android:imeOptions="actionDone"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>

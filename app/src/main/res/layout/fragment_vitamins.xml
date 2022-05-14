@@ -15,4 +15,310 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ProgressBar
+        android:id="@+id/kcal_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        tools:max="300000"
+        tools:progress="40000"
+        app:layout_constraintEnd_toStartOf="@id/max_kcal_textView"
+        app:layout_constraintStart_toEndOf="@id/now_kcal_textView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/max_kcal_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/black"
+        android:text="max"
+        app:layout_constraintBottom_toBottomOf="@+id/kcal_progressBar"
+        app:layout_constraintTop_toTopOf="@+id/kcal_progressBar"
+        app:layout_constraintStart_toEndOf="@id/kcal_progressBar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/now_kcal_textView"
+        android:text="now"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/kcal_progressBar"
+        app:layout_constraintTop_toTopOf="@+id/kcal_progressBar"
+        app:layout_constraintEnd_toStartOf="@id/kcal_progressBar" />
+
+    <TextView
+        android:id="@+id/no_data_kcal_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:text="Заполните профиль"
+        app:layout_constraintBottom_toBottomOf="@+id/kcal_progressBar"
+        app:layout_constraintEnd_toEndOf="@+id/kcal_progressBar"
+        app:layout_constraintStart_toStartOf="@+id/kcal_progressBar"
+        app:layout_constraintTop_toTopOf="@+id/kcal_progressBar" />
+
+    <TextView
+        android:id="@+id/kcal_name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:text="Килокалории (ккал)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kcal_progressBar" />
+
+    <ProgressBar
+        android:id="@+id/fe_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        tools:max="3000"
+        tools:progress="1000"
+        app:layout_constraintEnd_toStartOf="@id/max_fe_textView"
+        app:layout_constraintStart_toEndOf="@id/now_fe_textView"
+        app:layout_constraintTop_toBottomOf="@id/kcal_progressBar" />
+
+    <TextView
+        android:id="@+id/max_fe_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/black"
+        android:text="max"
+        app:layout_constraintBottom_toBottomOf="@+id/fe_progressBar"
+        app:layout_constraintStart_toEndOf="@id/fe_progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fe_progressBar" />
+
+    <TextView
+        android:id="@+id/now_fe_textView"
+        android:text="now"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/fe_progressBar"
+        app:layout_constraintTop_toTopOf="@+id/fe_progressBar"
+        app:layout_constraintEnd_toStartOf="@id/fe_progressBar" />
+
+    <TextView
+        android:id="@+id/no_data_fe_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:text="Заполните профиль"
+        app:layout_constraintBottom_toBottomOf="@+id/fe_progressBar"
+        app:layout_constraintEnd_toEndOf="@+id/fe_progressBar"
+        app:layout_constraintStart_toStartOf="@+id/fe_progressBar"
+        app:layout_constraintTop_toTopOf="@+id/fe_progressBar" />
+
+    <TextView
+        android:id="@+id/fe_name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:text="Железо (мг)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fe_progressBar" />
+
+    <ProgressBar
+        android:id="@+id/v_D_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        tools:max="3000"
+        tools:progress="1000"
+        app:layout_constraintEnd_toStartOf="@id/max_v_D_textView"
+        app:layout_constraintStart_toEndOf="@id/now_v_D_textView"
+        app:layout_constraintTop_toBottomOf="@id/fe_progressBar" />
+
+    <TextView
+        android:id="@+id/max_v_D_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/black"
+        android:text="max"
+        app:layout_constraintBottom_toBottomOf="@+id/v_D_progressBar"
+        app:layout_constraintStart_toEndOf="@id/v_D_progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/v_D_progressBar" />
+
+    <TextView
+        android:id="@+id/now_v_D_textView"
+        android:text="now"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/v_D_progressBar"
+        app:layout_constraintTop_toTopOf="@+id/v_D_progressBar"
+        app:layout_constraintEnd_toStartOf="@id/v_D_progressBar" />
+
+    <TextView
+        android:id="@+id/no_data_v_D_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:text="Заполните профиль"
+        app:layout_constraintBottom_toBottomOf="@+id/v_D_progressBar"
+        app:layout_constraintEnd_toEndOf="@+id/v_D_progressBar"
+        app:layout_constraintStart_toStartOf="@+id/v_D_progressBar"
+        app:layout_constraintTop_toTopOf="@+id/v_D_progressBar" />
+
+    <TextView
+        android:id="@+id/v_D_name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:text="Витамин D (мкг)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v_D_progressBar" />
+
+    <ProgressBar
+        android:id="@+id/v_B12_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        tools:max="3000"
+        tools:progress="1000"
+        app:layout_constraintEnd_toStartOf="@id/max_v_B12_textView"
+        app:layout_constraintStart_toEndOf="@id/now_v_B12_textView"
+        app:layout_constraintTop_toBottomOf="@id/v_D_progressBar" />
+
+    <TextView
+        android:id="@+id/max_v_B12_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/black"
+        android:text="max"
+        app:layout_constraintBottom_toBottomOf="@+id/v_B12_progressBar"
+        app:layout_constraintStart_toEndOf="@id/v_B12_progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/v_B12_progressBar" />
+
+    <TextView
+        android:id="@+id/now_v_B12_textView"
+        android:text="now"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/v_B12_progressBar"
+        app:layout_constraintTop_toTopOf="@+id/v_B12_progressBar"
+        app:layout_constraintEnd_toStartOf="@id/v_B12_progressBar" />
+
+    <TextView
+        android:id="@+id/no_data_v_B12_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:text="Заполните профиль"
+        app:layout_constraintBottom_toBottomOf="@+id/v_B12_progressBar"
+        app:layout_constraintEnd_toEndOf="@+id/v_B12_progressBar"
+        app:layout_constraintStart_toStartOf="@+id/v_B12_progressBar"
+        app:layout_constraintTop_toTopOf="@+id/v_B12_progressBar" />
+
+    <TextView
+        android:id="@+id/v_B12_name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:text="Витамин B12 (мкг)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v_B12_progressBar" />
+
+    <ProgressBar
+        android:id="@+id/omega3_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:max="100"
+        tools:progress="20"
+        app:layout_constraintEnd_toStartOf="@id/max_omega3_textView"
+        app:layout_constraintStart_toEndOf="@id/now_omega3_textView"
+        app:layout_constraintTop_toBottomOf="@id/v_B12_progressBar" />
+
+    <TextView
+        android:id="@+id/max_omega3_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/black"
+        android:text="1"
+        app:layout_constraintBottom_toBottomOf="@+id/omega3_progressBar"
+        app:layout_constraintStart_toEndOf="@id/omega3_progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/omega3_progressBar" />
+
+    <TextView
+        android:id="@+id/now_omega3_textView"
+        android:text="now"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/omega3_progressBar"
+        app:layout_constraintTop_toTopOf="@+id/omega3_progressBar"
+        app:layout_constraintEnd_toStartOf="@id/omega3_progressBar" />
+
+    <TextView
+        android:id="@+id/no_data_omega3_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:text="Заполните профиль"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/omega3_progressBar"
+        app:layout_constraintEnd_toEndOf="@+id/omega3_progressBar"
+        app:layout_constraintStart_toStartOf="@+id/omega3_progressBar"
+        app:layout_constraintTop_toTopOf="@+id/omega3_progressBar" />
+
+    <TextView
+        android:id="@+id/omega3_name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:text="Омега-3 (г)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/omega3_progressBar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

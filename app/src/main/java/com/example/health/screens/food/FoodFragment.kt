@@ -11,7 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
-import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
@@ -20,10 +20,9 @@ import com.example.health.databinding.AddFoodDialogBinding
 import com.example.health.databinding.AddNewFoodDialogBinding
 import com.example.health.databinding.FoodInfoDialogBinding
 import com.example.health.databinding.FragmentFoodBinding
+import com.example.health.models.AmountDish
+import com.example.health.models.DataViewModel
 import com.example.health.models.Dish
-import com.example.health.utilits.APP_ACTIVITY
-import com.example.health.utilits.APP_PREFERENCES
-import com.example.health.utilits.WEIGHT_PREFS
 
 class FoodFragment : Fragment() {
 
@@ -33,6 +32,7 @@ class FoodFragment : Fragment() {
     private lateinit var mAdapter: FoodAdapter
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mObserverList: Observer<List<Dish>>
+    private val dataViewModel: DataViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -157,11 +157,11 @@ class FoodFragment : Fragment() {
         dialog.show()
     }
 
-    private fun showAddFoodAlertDialog(foodItem: Dish) {
+    private fun showAddFoodAlertDialog(dish: Dish) {
         val dialogBinding = AddFoodDialogBinding.inflate(layoutInflater)
 
         val dialog = AlertDialog.Builder(context)
-            .setTitle(foodItem.name)
+            .setTitle(dish.name)
             .setView(dialogBinding.root)
             .setPositiveButton(getString(R.string.confirm),null)
             .create()
@@ -189,13 +189,12 @@ class FoodFragment : Fragment() {
                 }
             })
             dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener{
-                val edittext = dialogBinding.foodValueEditText.text.toString()
-                if(edittext.isBlank()){
+                val editText = dialogBinding.foodValueEditText.text.toString()
+                if(editText.isBlank()){
                     dialogBinding.foodValueEditText.error = getString(R.string.enter_value)
                     return@setOnClickListener
                 }
-                Toast.makeText(context, APP_PREFERENCES.getString(WEIGHT_PREFS,"kek"), Toast.LENGTH_SHORT).show()
-                //todo save values
+                dataViewModel.eatenFoodVitaminFrag.value = AmountDish(dish = dish, amount = editText.toInt())
                 dialog.dismiss()
             }
         }

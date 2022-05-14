@@ -21,3 +21,8 @@ data class Dish(
     @ColumnInfo(name = "vitamin_b_12") val vitaminB12: Double?,
     @ColumnInfo(name = "omega_3") val omega3: Double?
 )
+
+data class AmountDish(
+    val dish: Dish,
+    val amount:Int
+)

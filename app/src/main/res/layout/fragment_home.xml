@@ -36,6 +36,7 @@
         android:indeterminateOnly="false"
         android:progressDrawable="@drawable/steps_circle"
         tools:progress="50"
+        android:visibility="gone"
         android:layout_width="120dp"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="@+id/water_progressBar"
@@ -51,7 +52,7 @@
         android:contentDescription="kcal"
         android:src="@drawable/ic_kkal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.33"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kkal_progressBar" />
 
@@ -62,6 +63,7 @@
         android:layout_marginTop="32dp"
         android:src="@drawable/ic_water"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.66"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kkal_progressBar" />
 
@@ -71,6 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:src="@drawable/ic_steps"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"

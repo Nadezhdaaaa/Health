@@ -42,7 +42,7 @@
 
     <TextView
         android:id="@+id/now_kcal_textView"
-        android:text="now"
+        android:text="0"
         android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
 
     <TextView
         android:id="@+id/now_fe_textView"
-        android:text="now"
+        android:text="0"
         android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -164,7 +164,7 @@
 
     <TextView
         android:id="@+id/now_v_D_textView"
-        android:text="now"
+        android:text="0"
         android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -225,7 +225,7 @@
 
     <TextView
         android:id="@+id/now_v_B12_textView"
-        android:text="now"
+        android:text="0"
         android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -286,7 +286,7 @@
 
     <TextView
         android:id="@+id/now_omega3_textView"
-        android:text="now"
+        android:text="0"
         android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

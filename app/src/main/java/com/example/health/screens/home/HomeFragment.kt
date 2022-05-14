@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -17,13 +18,17 @@ import androidx.navigation.navOptions
 import com.example.health.R
 import com.example.health.databinding.AddWaterDialogBinding
 import com.example.health.databinding.FragmentHomeBinding
-import com.example.health.utilits.APP_ACTIVITY
+import com.example.health.models.DataViewModel
+import com.example.health.utilits.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HomeFragment : Fragment() {
 
     private var _binding : FragmentHomeBinding? = null
     private val mBinding get() = _binding!!
     private lateinit var mViewModel: HomeFragmentViewModel
+    private val dataViewModel: DataViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,12 +46,73 @@ class HomeFragment : Fragment() {
     private fun initialization() {
         mViewModel = ViewModelProvider(this).get(HomeFragmentViewModel::class.java)
         mViewModel.initDatabase { }
+
+        val weight = APP_PREFERENCES.getString(WEIGHT_PREFS, "")
+        val age = APP_PREFERENCES.getString(AGE_PREFS, "")
+        val sex = APP_PREFERENCES.getBoolean(SEX_PREFS, false)
+        maxKcalCalculation(weight, age, sex)
+        //подгрузка прогресса
+        val lastDate = APP_PREFERENCES.getString(HOME_DATE, "")
+        val dateFormat = SimpleDateFormat("yyyyMMdd", Locale.getDefault())
+        val currentDate = dateFormat.format(Calendar.getInstance().time)
+        if (!lastDate.isNullOrBlank() && lastDate == currentDate){
+            val nowKcal = APP_PREFERENCES.getString(HOME_KCAL,"")!!
+            mBinding.kkalProgressBar.progress = nowKcal.toInt()
+        }
+        val lastDateWater = APP_PREFERENCES.getString(WATER_DATE,"")
+        if (!lastDateWater.isNullOrBlank() && lastDateWater == currentDate) {
+            val nowWater = APP_PREFERENCES.getString(WATER_NOW,"")!!
+            mBinding.kkalProgressBar.progress = nowWater.toInt()
+        }
+        //обработка изменений
+        dataViewModel.eatenFoodHomeFrag.observe(viewLifecycleOwner) {
+            if (dataViewModel.eatenFoodHomeFrag.value != null) {
+                for (amountDish in dataViewModel.eatenFoodHomeFrag.value!!) {
+                    mBinding.kkalProgressBar.progress += amountDish.dish.kcal * amountDish.amount / 100 * 100
+                    //val nowKcal = mBinding.nowKcalTextView.text.toString().toInt() + amountDish.dish.kcal * amountDish.amount / 100
+                    //mBinding.nowKcalTextView.text = nowKcal.toString()
+                    val nowKcal = mBinding.kkalProgressBar.progress + amountDish.dish.kcal * amountDish.amount
+                    APP_PREFERENCES.edit().putString(HOME_KCAL,nowKcal.toString()).apply()
+                }
+                APP_PREFERENCES.edit().putString(HOME_DATE,currentDate).apply()
+                dataViewModel.eatenFoodHomeFrag.value = null
+            }
+        }
+
         mBinding.btnAddWater.setOnClickListener{
-            addWaterClick()
+            addWaterClick(currentDate)
         }
     }
 
-    private fun addWaterClick(){
+    private fun maxKcalCalculation(weight: String?, age: String?, sex: Boolean) {
+        if (weight.isNullOrBlank() || age.isNullOrBlank()) return
+        val kcalMax: Int
+        //mBinding.noDataKcalTextView.visibility = View.GONE
+        if (!sex) {
+            kcalMax = if (age.toInt() < 31) {
+                ((weight.toInt() * 0.063 + 2.896) * 240 * 1.3).toInt()
+            } else {
+                if (age.toInt() < 61) {
+                    ((weight.toInt() * 0.0484 + 3.653) * 240 * 1.3).toInt()
+                } else {
+                    ((weight.toInt() * 0.0491 + 2.459) * 240 * 1.3).toInt()
+                }
+            }
+        } else {
+            kcalMax = if (age.toInt() < 31) {
+                ((weight.toInt() * 0.062 + 2.036) * 240 * 1.3).toInt()
+            } else {
+                if (age.toInt() < 61) {
+                    ((weight.toInt() * 0.034 + 3.538) * 240 * 1.3).toInt()
+                } else {
+                    ((weight.toInt() * 0.038 + 2.755) * 240 * 1.3).toInt()
+                }
+            }
+        }
+        mBinding.kkalProgressBar.progress = kcalMax * 100
+    }
+
+    private fun addWaterClick(currentDate: String){
         val dialogBinding = AddWaterDialogBinding.inflate(layoutInflater)
         val dialog = AlertDialog.Builder(context)
             .setTitle(R.string.water)
@@ -81,7 +147,8 @@ class HomeFragment : Fragment() {
                     dialogBinding.waterValueEditText.error = context?.getString(R.string.enter_value)
                     return@positiveClick
                 }
-                //todo save values
+                APP_PREFERENCES.edit().putString(WATER_NOW,edittext).apply()
+                APP_PREFERENCES.edit().putString(WATER_DATE,currentDate).apply()
                 dialog.dismiss()
             }
         }

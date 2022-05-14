@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleOwner
-import com.example.health.R
 import com.example.health.databinding.FragmentVitaminsBinding
 import com.example.health.models.DataViewModel
 import com.example.health.utilits.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class VitaminsFragment : Fragment() {
 
@@ -40,12 +39,71 @@ class VitaminsFragment : Fragment() {
         maxFeCalculation(age, sex)
         maxVDCalculation(age)
         maxB12Calculation(age)
+        //подгрузка прогресса
+        val lastDate = APP_PREFERENCES.getString(DATE, "")
+        val dateFormat = SimpleDateFormat("yyyyMMdd", Locale.getDefault())
+        val currentDate = dateFormat.format(Calendar.getInstance().time)
+        if (!lastDate.isNullOrBlank() && lastDate == currentDate) {
+            val nowKcal = APP_PREFERENCES.getString(KCAL_NOW,"")!!
+            val nowFe = APP_PREFERENCES.getString(FE_NOW,"")
+            val nowVD = APP_PREFERENCES.getString(FE_NOW,"")
+            val nowVB12 = APP_PREFERENCES.getString(FE_NOW,"")
+            val nowOmega3 = APP_PREFERENCES.getString(FE_NOW,"")
+            mBinding.kcalProgressBar.progress = nowKcal.toInt()
+            when {
+                !nowFe.isNullOrBlank() -> {
+                    mBinding.feProgressBar.progress = nowFe.toInt()
+                    mBinding.nowFeTextView.text = nowFe
+                }
+                !nowVD.isNullOrBlank() -> {
+                    mBinding.vDProgressBar.progress = nowVD.toInt()
+                    mBinding.nowVDTextView.text = nowVD
+                }
+                !nowVB12.isNullOrBlank() -> {
+                    mBinding.vB12ProgressBar.progress = nowVB12.toInt()
+                    mBinding.nowVB12TextView.text = nowVB12
+                }
+                !nowOmega3.isNullOrBlank() -> {
+                    mBinding.omega3ProgressBar.progress = nowOmega3.toInt()
+                    mBinding.nowOmega3TextView.text = nowOmega3
+                }
+            }
+        }
+        //обработка изменений прогресса
         dataViewModel.eatenFoodVitaminFrag.observe(viewLifecycleOwner) {
-            if(dataViewModel.eatenFoodVitaminFrag.value != null) {
+            if (dataViewModel.eatenFoodVitaminFrag.value != null) {
                 for (amountDish in dataViewModel.eatenFoodVitaminFrag.value!!) {
                     mBinding.kcalProgressBar.progress += amountDish.dish.kcal * amountDish.amount / 100 * 100
-                    dataViewModel.eatenFoodVitaminFrag.value = null
+                    val nowKcal = mBinding.nowKcalTextView.text.toString().toInt() + amountDish.dish.kcal * amountDish.amount / 100
+                    mBinding.nowKcalTextView.text = nowKcal.toString()
+                    APP_PREFERENCES.edit().putString(KCAL_NOW,nowKcal.toString()).apply()
+                    if (amountDish.dish.fe != null) {
+                        mBinding.feProgressBar.progress += (amountDish.dish.fe * amountDish.amount).toInt()
+                        val nowFe = mBinding.nowFeTextView.text.toString().toDouble() + amountDish.dish.fe * amountDish.amount / 100
+                        mBinding.nowFeTextView.text = nowFe.toString()
+                        APP_PREFERENCES.edit().putString(FE_NOW,nowFe.toString()).apply()
+                    }
+                    if (amountDish.dish.vitaminD != null) {
+                        mBinding.vDProgressBar.progress += (amountDish.dish.vitaminD * amountDish.amount).toInt()
+                        val nowVD = mBinding.nowVDTextView.text.toString().toDouble() + amountDish.dish.vitaminD * amountDish.amount / 100
+                        mBinding.nowVDTextView.text = nowVD.toString()
+                        APP_PREFERENCES.edit().putString(VD_NOW,nowVD.toString()).apply()
+                    }
+                    if (amountDish.dish.vitaminB12 != null) {
+                        mBinding.vB12ProgressBar.progress += (amountDish.dish.vitaminB12 * amountDish.amount).toInt()
+                        val nowVB12 = mBinding.nowVB12TextView.text.toString().toDouble() + amountDish.dish.vitaminB12 * amountDish.amount / 100
+                        mBinding.nowVB12TextView.text = nowVB12.toString()
+                        APP_PREFERENCES.edit().putString(VB12_NOW,nowVB12.toString()).apply()
+                    }
+                    if (amountDish.dish.omega3 != null) {
+                        mBinding.omega3ProgressBar.progress += (amountDish.dish.omega3 * amountDish.amount).toInt()
+                        val nowOmega3 = mBinding.nowOmega3TextView.text.toString().toDouble() + amountDish.dish.omega3 * amountDish.amount / 100
+                        mBinding.nowOmega3TextView.text = nowOmega3.toString()
+                        APP_PREFERENCES.edit().putString(OMEGA3_NOW,nowOmega3.toString()).apply()
+                    }
                 }
+                APP_PREFERENCES.edit().putString(DATE,currentDate).apply()
+                dataViewModel.eatenFoodVitaminFrag.value = null
             }
         }
     }

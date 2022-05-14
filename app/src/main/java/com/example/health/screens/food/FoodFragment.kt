@@ -194,7 +194,11 @@ class FoodFragment : Fragment() {
                     dialogBinding.foodValueEditText.error = getString(R.string.enter_value)
                     return@setOnClickListener
                 }
-                dataViewModel.eatenFoodVitaminFrag.value?.add(AmountDish(dish = dish, amount = editText.toInt()))
+                if (dataViewModel.eatenFoodVitaminFrag.value.isNullOrEmpty()){
+                    dataViewModel.eatenFoodVitaminFrag.value = mutableListOf(AmountDish(dish = dish, amount = editText.toInt()))
+                }else {
+                    dataViewModel.eatenFoodVitaminFrag.value!!.add(AmountDish(dish = dish, amount = editText.toInt()))
+                }
                 dialog.dismiss()
             }
         }

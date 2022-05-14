@@ -50,6 +50,7 @@ class VitaminsFragment : Fragment() {
             val nowVB12 = APP_PREFERENCES.getString(VB12_NOW,"")
             val nowOmega3 = APP_PREFERENCES.getString(OMEGA3_NOW,"")
             mBinding.kcalProgressBar.progress = nowKcal.toInt()
+            mBinding.nowKcalTextView.text = nowKcal
             when {
                 !nowFe.isNullOrBlank() -> {
                     mBinding.feProgressBar.progress = nowFe.toDouble().toInt()

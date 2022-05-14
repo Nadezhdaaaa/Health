@@ -59,7 +59,7 @@ class FoodFragment : Fragment() {
         mRecyclerView = mBinding.foodRecyclerView
         mRecyclerView.adapter = mAdapter
         mObserverList = Observer {
-            val list = it//.sortedBy { it.name }
+            val list = it.sortedBy { it.name }
             mAdapter.setList(list)
         }
         mViewModel = ViewModelProvider(this).get(FoodFragmentViewModel::class.java)
@@ -194,7 +194,7 @@ class FoodFragment : Fragment() {
                     dialogBinding.foodValueEditText.error = getString(R.string.enter_value)
                     return@setOnClickListener
                 }
-                dataViewModel.eatenFoodVitaminFrag.value = AmountDish(dish = dish, amount = editText.toInt())
+                dataViewModel.eatenFoodVitaminFrag.value?.add(AmountDish(dish = dish, amount = editText.toInt()))
                 dialog.dismiss()
             }
         }

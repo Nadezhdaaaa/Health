@@ -40,10 +40,12 @@ class VitaminsFragment : Fragment() {
         maxFeCalculation(age, sex)
         maxVDCalculation(age)
         maxB12Calculation(age)
-        dataViewModel.eatenFoodVitaminFrag.observe(activity as LifecycleOwner) {
+        dataViewModel.eatenFoodVitaminFrag.observe(viewLifecycleOwner) {
             if(dataViewModel.eatenFoodVitaminFrag.value != null) {
-                mBinding.kcalProgressBar.progress += dataViewModel.eatenFoodVitaminFrag.value!!.dish.kcal * dataViewModel.eatenFoodVitaminFrag.value!!.amount / 100 * 100
-                dataViewModel.eatenFoodVitaminFrag.value = null
+                for (amountDish in dataViewModel.eatenFoodVitaminFrag.value!!) {
+                    mBinding.kcalProgressBar.progress += amountDish.dish.kcal * amountDish.amount / 100 * 100
+                    dataViewModel.eatenFoodVitaminFrag.value = null
+                }
             }
         }
     }

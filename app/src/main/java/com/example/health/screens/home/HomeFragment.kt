@@ -64,16 +64,16 @@ class HomeFragment : Fragment() {
         val lastDateWater = APP_PREFERENCES.getString(WATER_DATE,"")
         if (!lastDateWater.isNullOrBlank() && lastDateWater == currentDate) {
             val nowWater = APP_PREFERENCES.getString(WATER_NOW,"")!!
-            mBinding.kkalProgressBar.progress = nowWater.toInt()
+            mBinding.waterProgressBar.progress = nowWater.toInt()
         }
         //обработка изменений
         dataViewModel.eatenFoodHomeFrag.observe(viewLifecycleOwner) {
             if (dataViewModel.eatenFoodHomeFrag.value != null) {
                 for (amountDish in dataViewModel.eatenFoodHomeFrag.value!!) {
-                    mBinding.kkalProgressBar.progress += amountDish.dish.kcal * amountDish.amount / 100 * 100
+                    val nowKcal = mBinding.kkalProgressBar.progress + amountDish.dish.kcal * amountDish.amount
+                    mBinding.kkalProgressBar.progress = nowKcal
                     //val nowKcal = mBinding.nowKcalTextView.text.toString().toInt() + amountDish.dish.kcal * amountDish.amount / 100
                     //mBinding.nowKcalTextView.text = nowKcal.toString()
-                    val nowKcal = mBinding.kkalProgressBar.progress + amountDish.dish.kcal * amountDish.amount
                     APP_PREFERENCES.edit().putString(HOME_KCAL,nowKcal.toString()).apply()
                 }
                 APP_PREFERENCES.edit().putString(HOME_DATE,currentDate).apply()
@@ -154,8 +154,9 @@ class HomeFragment : Fragment() {
                     dialogBinding.waterValueEditText.error = context?.getString(R.string.enter_value)
                     return@positiveClick
                 }
-                mBinding.waterProgressBar.progress = edittext.toInt()
-                APP_PREFERENCES.edit().putString(WATER_NOW,edittext).apply()
+                val waterNow = mBinding.waterProgressBar.progress + edittext.toInt()
+                mBinding.waterProgressBar.progress = waterNow
+                APP_PREFERENCES.edit().putString(WATER_NOW,waterNow.toString()).apply()
                 APP_PREFERENCES.edit().putString(WATER_DATE,currentDate).apply()
                 dialog.dismiss()
             }

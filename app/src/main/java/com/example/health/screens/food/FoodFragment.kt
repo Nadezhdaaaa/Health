@@ -199,6 +199,11 @@ class FoodFragment : Fragment() {
                 }else {
                     dataViewModel.eatenFoodVitaminFrag.value!!.add(AmountDish(dish = dish, amount = editText.toInt()))
                 }
+                if (dataViewModel.eatenFoodHomeFrag.value.isNullOrEmpty()){
+                    dataViewModel.eatenFoodHomeFrag.value = mutableListOf(AmountDish(dish = dish, amount = editText.toInt()))
+                }else {
+                    dataViewModel.eatenFoodHomeFrag.value!!.add(AmountDish(dish = dish, amount = editText.toInt()))
+                }
                 dialog.dismiss()
             }
         }

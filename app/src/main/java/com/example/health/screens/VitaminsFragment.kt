@@ -49,25 +49,23 @@ class VitaminsFragment : Fragment() {
             val nowVD = APP_PREFERENCES.getString(VD_NOW,"")
             val nowVB12 = APP_PREFERENCES.getString(VB12_NOW,"")
             val nowOmega3 = APP_PREFERENCES.getString(OMEGA3_NOW,"")
-            mBinding.kcalProgressBar.progress = nowKcal.toInt()
+            mBinding.kcalProgressBar.progress = nowKcal.toInt() * 100
             mBinding.nowKcalTextView.text = nowKcal
-            when {
-                !nowFe.isNullOrBlank() -> {
-                    mBinding.feProgressBar.progress = nowFe.toDouble().toInt()
-                    mBinding.nowFeTextView.text = nowFe
-                }
-                !nowVD.isNullOrBlank() -> {
-                    mBinding.vDProgressBar.progress = nowVD.toDouble().toInt()
-                    mBinding.nowVDTextView.text = nowVD
-                }
-                !nowVB12.isNullOrBlank() -> {
-                    mBinding.vB12ProgressBar.progress = nowVB12.toDouble().toInt()
-                    mBinding.nowVB12TextView.text = nowVB12
-                }
-                !nowOmega3.isNullOrBlank() -> {
-                    mBinding.omega3ProgressBar.progress = nowOmega3.toDouble().toInt()
-                    mBinding.nowOmega3TextView.text = nowOmega3
-                }
+            if (!nowFe.isNullOrBlank()) {
+                mBinding.feProgressBar.progress = (nowFe.toDouble() * 100).toInt()
+                mBinding.nowFeTextView.text = nowFe
+            }
+            if (!nowVD.isNullOrBlank()) {
+                mBinding.vDProgressBar.progress = (nowVD.toDouble() * 100).toInt()
+                mBinding.nowVDTextView.text = nowVD
+            }
+            if (!nowVB12.isNullOrBlank()) {
+                mBinding.vB12ProgressBar.progress = (nowVB12.toDouble() * 100).toInt()
+                mBinding.nowVB12TextView.text = nowVB12
+            }
+            if (!nowOmega3.isNullOrBlank()) {
+                mBinding.omega3ProgressBar.progress = (nowOmega3.toDouble() * 100).toInt()
+                mBinding.nowOmega3TextView.text = nowOmega3
             }
         }
         //обработка изменений прогресса

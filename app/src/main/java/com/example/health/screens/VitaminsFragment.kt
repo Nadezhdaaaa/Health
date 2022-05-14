@@ -46,25 +46,25 @@ class VitaminsFragment : Fragment() {
         if (!lastDate.isNullOrBlank() && lastDate == currentDate) {
             val nowKcal = APP_PREFERENCES.getString(KCAL_NOW,"")!!
             val nowFe = APP_PREFERENCES.getString(FE_NOW,"")
-            val nowVD = APP_PREFERENCES.getString(FE_NOW,"")
-            val nowVB12 = APP_PREFERENCES.getString(FE_NOW,"")
-            val nowOmega3 = APP_PREFERENCES.getString(FE_NOW,"")
+            val nowVD = APP_PREFERENCES.getString(VD_NOW,"")
+            val nowVB12 = APP_PREFERENCES.getString(VB12_NOW,"")
+            val nowOmega3 = APP_PREFERENCES.getString(OMEGA3_NOW,"")
             mBinding.kcalProgressBar.progress = nowKcal.toInt()
             when {
                 !nowFe.isNullOrBlank() -> {
-                    mBinding.feProgressBar.progress = nowFe.toInt()
+                    mBinding.feProgressBar.progress = nowFe.toDouble().toInt()
                     mBinding.nowFeTextView.text = nowFe
                 }
                 !nowVD.isNullOrBlank() -> {
-                    mBinding.vDProgressBar.progress = nowVD.toInt()
+                    mBinding.vDProgressBar.progress = nowVD.toDouble().toInt()
                     mBinding.nowVDTextView.text = nowVD
                 }
                 !nowVB12.isNullOrBlank() -> {
-                    mBinding.vB12ProgressBar.progress = nowVB12.toInt()
+                    mBinding.vB12ProgressBar.progress = nowVB12.toDouble().toInt()
                     mBinding.nowVB12TextView.text = nowVB12
                 }
                 !nowOmega3.isNullOrBlank() -> {
-                    mBinding.omega3ProgressBar.progress = nowOmega3.toInt()
+                    mBinding.omega3ProgressBar.progress = nowOmega3.toDouble().toInt()
                     mBinding.nowOmega3TextView.text = nowOmega3
                 }
             }

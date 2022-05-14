@@ -51,6 +51,8 @@ class HomeFragment : Fragment() {
         val age = APP_PREFERENCES.getString(AGE_PREFS, "")
         val sex = APP_PREFERENCES.getBoolean(SEX_PREFS, false)
         maxKcalCalculation(weight, age, sex)
+        maxWaterCalculation(weight)
+
         //подгрузка прогресса
         val lastDate = APP_PREFERENCES.getString(HOME_DATE, "")
         val dateFormat = SimpleDateFormat("yyyyMMdd", Locale.getDefault())
@@ -109,7 +111,13 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-        mBinding.kkalProgressBar.progress = kcalMax * 100
+        mBinding.kkalProgressBar.max = kcalMax * 100
+    }
+
+    private fun maxWaterCalculation(weight: String?){
+        if (weight.isNullOrBlank()) return
+        val waterMax = weight.toInt() * 37.5
+        mBinding.waterProgressBar.max = waterMax.toInt()
     }
 
     private fun addWaterClick(currentDate: String){
@@ -140,13 +148,13 @@ class HomeFragment : Fragment() {
                     }
                 }
             })
-
             dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener positiveClick@{
                 val edittext = dialogBinding.waterValueEditText.text.toString()
                 if (edittext.isBlank()) {
                     dialogBinding.waterValueEditText.error = context?.getString(R.string.enter_value)
                     return@positiveClick
                 }
+                mBinding.waterProgressBar.progress = edittext.toInt()
                 APP_PREFERENCES.edit().putString(WATER_NOW,edittext).apply()
                 APP_PREFERENCES.edit().putString(WATER_DATE,currentDate).apply()
                 dialog.dismiss()
